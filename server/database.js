@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 const Mongoose = require("mongoose")
-const localDB = `mongodb://localhost:27017/sam`
+const localDB = `mongodb://localhost:27017/To-do-list`
+
+
+
 const connectDB = async () => {
     await Mongoose.connect(localDB, {
         useNewUrlParser: true,

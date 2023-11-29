@@ -11,8 +11,8 @@ POST {{SERVER}}/api/users/register
 content-type: application/json
 
 {
-    "name": "Sam",
-    "email": "sam@shaper.co.za",
+    "name": "Samkelisiwe",
+    "email": "samke@shaper.co.za",
     "password": "123456"
 }
 
@@ -22,7 +22,7 @@ POST {{SERVER}}/api/users/login
 content-type: application/json
 
 {
-    "email": "sam@shaper.co.za",
+    "email": "samke@shaper.co.za",
     "password": "123456"
 }
 
