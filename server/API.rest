@@ -1,2 +1,28 @@
+### variable
+@SERVER=http://localhost:60000
+
+
 ### testing the server
-GET http://localhost:1000
+GET {{SERVER}}
+
+
+### register stock manager
+POST {{SERVER}}/api/users/register
+content-type: application/json
+
+{
+    "name": "Samkelisiwe",
+    "email": "samke@shaper.co.za",
+    "password": "123456"
+}
+
+
+### login
+POST {{SERVER}}/api/users/login
+content-type: application/json
+
+{
+    "email": "samke@shaper.co.za",
+    "password": "123456"
+}
+
