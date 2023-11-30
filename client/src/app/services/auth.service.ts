@@ -10,6 +10,9 @@ import { env } from 'src/enviroment/enviroment';
   providedIn: 'root'
 })
 export class AuthService {
+  error(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   auth: User | undefined;
   user: any;
 
