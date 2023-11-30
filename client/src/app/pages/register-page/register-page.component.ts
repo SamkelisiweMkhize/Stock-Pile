@@ -17,6 +17,7 @@ export class RegisterPageComponent {
     // password: string = '';
   
     items: User[] = [];
+  router: any;
 
     constructor(private service:AuthService){
     }
@@ -39,6 +40,8 @@ register(){
 
   this.service.registerFn(this.form.value).subscribe((res:any)=> {
     console.log(res);
+
+    this.router.navigate(['loginpage'])
   })
 }
 

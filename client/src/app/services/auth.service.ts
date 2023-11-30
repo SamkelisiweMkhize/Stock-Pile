@@ -10,17 +10,17 @@ import { env } from 'src/enviroment/enviroment';
   providedIn: 'root'
 })
 export class AuthService {
+  // login(value: any) {
+  //   throw new Error('Method not implemented.');
+  // }
   auth: User | undefined;
   user: any;
 
   constructor(private httpClient:HttpClient) { }
 
    // login function
-  loginFn(email: string, password: string): Observable<User> {
-    return this.httpClient.post<User>(env.SERVER_URL + '/api/users/login', {
-      email,
-      password,
-    });
+  loginFn(user: User): Observable<User> {
+    return this.httpClient.post<User>(env.SERVER_URL + '/auth/login',user);
   }
 
 

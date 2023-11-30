@@ -7,11 +7,10 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { CategoriesComponent } from './ui/categories/categories.component';
-import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { LoginComponent } from './pages/login-page/login-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomePageComponent,
     NavbarComponent,
     CategoriesComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
