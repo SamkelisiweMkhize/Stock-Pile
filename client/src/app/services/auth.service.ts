@@ -17,7 +17,7 @@ export class AuthService {
 
    // login function
   loginFn(email: string, password: string): Observable<User> {
-    return this.httpClient.post<User>(env.SERVER_URL + '/auth/login', {
+    return this.httpClient.post<User>(env.SERVER_URL + '/api/users/login', {
       email,
       password,
     });
@@ -26,7 +26,7 @@ export class AuthService {
 
   // register function
   registerFn(user: User): Observable<User> {
-    return this.httpClient.post<User>(env.SERVER_URL + '/auth/register', 
+    return this.httpClient.post<User>(env.SERVER_URL + '/api/users/register', 
       user
     );
   }

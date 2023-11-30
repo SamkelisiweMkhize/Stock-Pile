@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { User } from 'src/app/interface/user';
+import { AuthService } from 'src/app/services/auth.service';
+
+
 
 @Component({
   selector: 'app-register-page',
@@ -6,8 +12,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
-open() {
-throw new Error('Method not implemented.');
+    // name: string = '';
+    // email: string = '';
+    // password: string = '';
+  
+    items: User[] = [];
+
+    constructor(private service:AuthService){
+    }
+
+
+form: FormGroup = new FormGroup({
+
+  username: new FormControl(''),
+  email: new FormControl(''),
+  password: new FormControl(''),
+
+})
+
+ngOnInit(): void {
+  this.register();
+  }
+
+
+register(){
+
+  this.service.registerFn(this.form.value).subscribe((res:any)=> {
+    console.log(res);
+  })
 }
 
 }

@@ -1,30 +1,30 @@
 
 <div class="cover">
-<form>
+<form   [formGroup]="form" >
     <h2>Register</h2>
     <div class="input-container">
       <i class="fa fa-user icon"></i>
-      <input class="input-field" type="text" placeholder="Username" name="usrnm">
+      <input class="input-field" type="text" placeholder="Username"  formControlName="username"name="usrnm">
     </div>
   
     <div class="input-container">
       <i class="fa fa-envelope icon"></i>
-      <input class="input-field" type="text" placeholder="Email" name="email">
+      <input class="input-field" type="text" placeholder="Email"  formControlName="email" name="email">
     </div>
     
     <div class="input-container">
       <i class="fa fa-key icon"></i>
-      <input class="input-field" type="password" placeholder="Password" name="psw">
+      <input class="input-field" type="password" placeholder="Password" formControlName="password" name="psw">
     </div>
   
-    <button type="submit" class="btn">Register</button>
+    <button type="submit" class="btn" (click)="register()">Register</button>
   </form>
 </div>
 
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-danger mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
+  Login
 </button>
 
 <!-- Modal -->
@@ -32,7 +32,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">If olready registered login here</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
