@@ -41,7 +41,7 @@ PUT {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
 content-type: application/json
 
 {
- "name": "broom",
+ "name": "tails",
  "description": "in stock"
 }
 
@@ -58,6 +58,9 @@ content-type: application/json
  "name": "porish",
  "description": "in stock"
 }
+
+###Search###
+GET {{SERVER}}/api/stock/items/6569748d99fe685f8e28045c
 
 
 
