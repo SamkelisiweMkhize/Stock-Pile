@@ -26,3 +26,37 @@ content-type: application/json
     "password": "123456"
 }
 
+
+### Add stock items
+POST {{SERVER}}/api/stock/create
+content-type: application/json
+
+{
+ "name": "broom",
+ "description": "out of tock"
+}
+
+### Update stock items
+PUT {{SERVER}}/api/stock/update/
+content-type: application/json
+
+{
+ "name": "suger",
+ "description": "out of tock"
+}
+
+### Delete stock items
+DELETE {{SERVER}}/api/stock/remove/6569723b99fe685f8e280454
+content-type: application/json
+
+{
+ "name": "broom",
+ "description": "out of tock"
+}
+
+
+
+
+
+
+

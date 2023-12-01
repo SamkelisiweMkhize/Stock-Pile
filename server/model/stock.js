@@ -1,25 +1,8 @@
-const Mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose"); 
 
-const StockSchema = new Mongoose.Schema({
-    mat: {
-        type: String,
-        required: true,
-    },
-    broom: {
-        type: String,
-        unique: true,
-        required: true,
-    },
-    tiles: {
-        type: String,
-        required: true,
-    },
+const itemSchema = new mongoose.Schema({
+    name: String,
+    description: String,
+  });
 
-});
-
-
-const Stock = Mongoose.model("Stock", StockSchema);
-
-module.exports = mongoose.model('Stock', stockSchema)
-
+  module.exports = mongoose.model('Item', itemSchema);
