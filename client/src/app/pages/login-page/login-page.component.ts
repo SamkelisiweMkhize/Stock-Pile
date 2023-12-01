@@ -17,11 +17,12 @@ export class LoginComponent implements OnInit {
   form: any = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
-  });
+  })
 
   login() {
     this.service.loginFn(this.form.value).subscribe((res: any) => {
       console.log(res);
-    });
+      this.router.navigate(['/home']);
+    })
   }
 }
