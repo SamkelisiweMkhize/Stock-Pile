@@ -37,23 +37,27 @@ content-type: application/json
 }
 
 ### Update stock items
-PUT {{SERVER}}/api/stock/update/
-content-type: application/json
-
-{
- "name": "suger",
- "description": "out of tock"
-}
-
-### Delete stock items
-DELETE {{SERVER}}/api/stock/remove/6569723b99fe685f8e280454
+PUT {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
 content-type: application/json
 
 {
  "name": "broom",
- "description": "out of tock"
+ "description": "in stock"
 }
 
+###Read###
+GET {{SERVER}}/api/stock/items
+
+
+
+###DELETE###
+DELETE {{SERVER}}/api/stock/items/6569748d99fe685f8e28045c
+content-type: application/json
+
+{
+ "name": "porish",
+ "description": "in stock"
+}
 
 
 

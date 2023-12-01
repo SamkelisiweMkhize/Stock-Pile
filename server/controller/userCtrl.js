@@ -1,7 +1,38 @@
 const User = require("../model/user")
 const Item = require("../model/stock")
 
+// login function
 
+  exports.login = async (req, res, next) => {
+    const { email, password } = req.body
+    // Check if email and password is provided
+    if (!email || !password) {
+      return res.status(400).json({
+        message: "email or Password not present",
+      })
+    }                                                              
+  
+
+  try {
+    const user = await User.findOne({ email, password })
+    if (!user) {
+      res.status(401).json({
+        message: "Login not successful",
+        error: "User not found",
+      })
+    } else {
+      res.status(200).json({
+        message: "Login successful",
+        user,
+      })
+    }
+  } catch (error) {
+    res.status(400).json({
+      message: "An error occurred",
+      error: error.message,
+    })
+  }
+}
 
 
 exports.register = async (req, res, next) => {
@@ -75,7 +106,7 @@ exports.remove = async (req, res) => {
 
   try {
     await Item.findByIdAndDelete(req.params.id);
-    res.status(204).send();
+    res.status(204).send({ message: "The item has been deleted" });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
