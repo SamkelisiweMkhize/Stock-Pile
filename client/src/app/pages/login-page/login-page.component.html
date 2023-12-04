@@ -1,7 +1,8 @@
 
 
-<div class="cover">
+
     <form   [formGroup]="form" >
+      <div class="cover">
         <h2>Login</h2>
         <div class="input-container">
           <i class="fa fa-user icon"></i>
@@ -12,7 +13,13 @@
             <i class="fa fa-key icon"></i>
             <input class="input-field" type="password" placeholder="Password" formControlName="password" name="psw">
           </div>
-        
-          <button type="submit" class="btn" (click)="login()">login</button>
+         
+          
+         
+          <button type="submit" class="btn" (click)="login()">login</button><p>
+            
+          </p>
+          <i class="bi bi-arrow-left-short"routerLink="/register" ></i>
+
+        </div>
     </form>
-</div>

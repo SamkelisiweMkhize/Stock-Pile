@@ -1,27 +1,54 @@
-<app-navbar/>
-    <table class="table mt-4">
-      <thead>
+<app-navbar />
+<table class="table mt-4">
+    <thead>
         <tr>
-          <th scope="col">Items</th>
-          <th scope="col">Category</th>
-          <th scope="col">Description</th>
+            <th scope="col">Items</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
         </tr>
-      </thead>
+    </thead>
 
-      <tbody class="justify-content-center">
-        <tr *ngFor="let item of items; let i = index">
-          <th scope="row">{{ i + 1 }}</th>
-           <td>{{ items.item }}</td>
-          <td>{{ items.category }}</td>
-          <td>{{ items.description }}</td>
-          <td>
-            <div class="btn-group d-grid gap-2 d-md-flex">
-              <button class="" type="button">Update</button>
-              <button class="" type="button">Delete</button>
+    <tbody class="justify-content-center">
+        <tr *ngFor="let item of myList; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ myList.item }}</td>
+            <td>{{ myList.category }}</td>
+            <td>{{ myList.description }}</td>
+            <td>
+                <div class="btn-group d-grid gap-2 d-md-flex">
+                    <!-- <button class="" type="button">Update</button>
+              <button class="" type="button">Delete</button> -->
+                </div>
+
+            </td>
+    </tbody>
+</table>
+
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add items</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form>
+            <div class="mb-3">
+                <label for="dateOfBirth">Date of birth</label>
+                <div class="input-group">
+                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                        #dp="ngbDatepicker" />
+                </div>
             </div>
-  
-          </td>
-      </tbody>
-    </table>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
 
-    <button class="d-grid" type="button">+</button>
+<button class="d-grid btn-lg btn-outline-primary" (click)="open(content)">Add Item</button>
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

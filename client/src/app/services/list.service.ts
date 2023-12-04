@@ -14,6 +14,7 @@ export class ListService {
 
   constructor(private http: HttpClient) {}
 
+
   getallListFunc():Observable<any>{ 
     return this.http.get(`${this.baseUrl}/read`)
   }
