@@ -6,27 +6,32 @@ import { AppComponent } from './app.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
-import { CategoriesComponent } from './ui/categories/categories.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './pages/login-page/login-page.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ItemsPageComponent } from './pages/items-page/items-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     RegisterPageComponent,
     HomePageComponent,
     NavbarComponent,
-    CategoriesComponent,
     LoginComponent,
+    ItemsPageComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

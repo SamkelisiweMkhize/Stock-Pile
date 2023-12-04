@@ -1,18 +1,18 @@
-<p>login-page works!</p>
+
 
 <div class="cover">
-    <form>
+    <form   [formGroup]="form" >
         <h2>Login</h2>
         <div class="input-container">
-            <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Email" formControlName="email" name="email">
+          <i class="fa fa-user icon"></i>
+          <input class="input-field" type="text" placeholder="Email"  formControlName="email"name="usrnm">
         </div>
 
         <div class="input-container">
             <i class="fa fa-key icon"></i>
             <input class="input-field" type="password" placeholder="Password" formControlName="password" name="psw">
-        </div>
-
-        <button type="submit" class="btn">Login</button>
+          </div>
+        
+          <button type="submit" class="btn" (click)="login()">login</button>
     </form>
 </div>

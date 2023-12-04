@@ -11,7 +11,7 @@ POST {{SERVER}}/api/users/register
 content-type: application/json
 
 {
-    "name": "Samkelisiwe",
+    "name": "samkelisiwe",
     "email": "samke@shaper.co.za",
     "password": "123456"
 }
@@ -37,23 +37,30 @@ content-type: application/json
 }
 
 ### Update stock items
-PUT {{SERVER}}/api/stock/update/
+PUT {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
 content-type: application/json
 
 {
- "name": "suger",
- "description": "out of tock"
+ "name": "tails5",
+ "description": "in stock"
 }
 
-### Delete stock items
-DELETE {{SERVER}}/api/stock/remove/6569723b99fe685f8e280454
+###Read###
+GET {{SERVER}}/api/stock/items
+
+
+
+###DELETE###
+DELETE {{SERVER}}/api/stock/items/6569748d99fe685f8e28045c
 content-type: application/json
 
 {
- "name": "broom",
- "description": "out of tock"
+ "name": "porish",
+ "description": "in stock"
 }
 
+###Search###
+GET {{SERVER}}/api/stock/items/6569748d99fe685f8e28045c
 
 
 

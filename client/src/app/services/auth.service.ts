@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../interface/user';
+import { User, UserRequest } from '../interface/user';
 import { Router } from '@angular/router';
 import { env } from 'src/enviroment/enviroment';
 
@@ -14,19 +14,19 @@ export class AuthService {
   //   throw new Error('Method not implemented.');
   // }
   auth: User | undefined;
-  user: any;
+  user!: User;
 
   constructor(private httpClient:HttpClient) { }
 
    // login function
-  loginFn(user: User): Observable<User> {
-    return this.httpClient.post<User>(env.SERVER_URL + '/auth/login',user);
+  loginFn(user: User): Observable<UserRequest> {
+    return this.httpClient.post<UserRequest>(env.SERVER_URL + '/api/users/login',user);
   }
 
 
   // register function
-  registerFn(user: User): Observable<User> {
-    return this.httpClient.post<User>(env.SERVER_URL + '/api/users/register', 
+  registerFn(user: User): Observable<UserRequest> {
+    return this.httpClient.post<UserRequest>(env.SERVER_URL + '/api/users/register', 
       user
     );
   }
