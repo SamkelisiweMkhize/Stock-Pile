@@ -17,4 +17,12 @@ export class ListService {
   getallListFunc():Observable<any>{ 
     return this.http.get(`${this.baseUrl}/read`)
   }
+
+  addToListFunc(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/add/${id}`)
+  }
+
+  removeFromListFunc(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/remove/${id}`)
+  }
 }

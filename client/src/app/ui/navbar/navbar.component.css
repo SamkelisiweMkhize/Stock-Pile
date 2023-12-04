@@ -1,0 +1,7 @@
+.navbar {
+    background-color: rgb(245, 59, 59);
+  }
+  
+  li:hover {
+    cursor: pointer;
+  }

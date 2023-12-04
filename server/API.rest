@@ -32,8 +32,8 @@ POST {{SERVER}}/api/stock/create
 content-type: application/json
 
 {
- "name": "broom",
- "description": "out of tock"
+ "name": "scoop",
+  "catecory": "out of tock"
 }
 
 ### Update stock items
@@ -51,7 +51,7 @@ GET {{SERVER}}/api/stock/items
 
 
 ###DELETE###
-DELETE {{SERVER}}/api/stock/items/6569748d99fe685f8e28045c
+DELETE {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
 content-type: application/json
 
 {
@@ -60,7 +60,10 @@ content-type: application/json
 }
 
 ###Search###
-GET {{SERVER}}/api/stock/items/6569748d99fe685f8e28045c
+GET {{SERVER}}/api/stock/items/search
+{
+    "name": ["broom"]
+}
 
 
 
