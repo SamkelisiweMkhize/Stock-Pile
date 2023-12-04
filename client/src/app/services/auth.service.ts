@@ -25,8 +25,8 @@ export class AuthService {
 
 
   // register function
-  registerFn(user: User): Observable<User> {
-    return this.httpClient.post<User>(env.SERVER_URL + '/api/users/register', 
+  registerFn(user: User): Observable<UserRequest> {
+    return this.httpClient.post<UserRequest>(env.SERVER_URL + '/api/users/register', 
       user
     );
   }

@@ -11,7 +11,7 @@ POST {{SERVER}}/api/users/register
 content-type: application/json
 
 {
-    "name": "Samkelisiwe",
+    "name": "samkelisiwe",
     "email": "samke@shaper.co.za",
     "password": "123456"
 }
@@ -41,7 +41,7 @@ PUT {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
 content-type: application/json
 
 {
- "name": "tails",
+ "name": "tails5",
  "description": "in stock"
 }
 

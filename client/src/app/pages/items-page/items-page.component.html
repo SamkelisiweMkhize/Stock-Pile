@@ -1,0 +1,28 @@
+
+    <!-- table -->
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+
+      <tbody class="justify-content-center">
+        <tr *ngFor="let item of items; let i = index">
+          <th scope="row">{{ i + 1 }}</th>
+           <td>{{ items.item }}</td>
+          <td>{{ items.category }}</td>
+          <td>{{ items.description }}</td>
+          <td>
+            <div class="btn-group d-grid gap-2 d-md-flex">
+              <button class="" type="button">Update</button>
+              <button class="" type="button">Delete</button>
+            </div>
+  
+          </td>
+      </tbody>
+    </table>
+
+    <button class="d-grid" type="button">+</button>

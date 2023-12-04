@@ -3,15 +3,15 @@ const Item = require("../model/stock")
 
 // login function
 
-  exports.login = async (req, res, next) => {
-    const { email, password } = req.body
-    // Check if email and password is provided
-    if (!email || !password) {
-      return res.status(400).json({
-        message: "email or Password not present",
-      })
-    }                                                              
-  
+exports.login = async (req, res, next) => {
+  const { email, password } = req.body
+  // Check if email and password is provided
+  if (!email || !password) {
+    return res.status(400).json({
+      message: "email or Password not present",
+    })
+  }
+
 
   try {
     const user = await User.findOne({ email, password })
@@ -23,7 +23,11 @@ const Item = require("../model/stock")
     } else {
       res.status(200).json({
         message: "Login successful",
-        user,
+        user: {
+          name: user.name,
+          email: user.email,
+          _id: user._id
+        }
       })
     }
   } catch (error) {
@@ -54,7 +58,7 @@ exports.register = async (req, res, next) => {
   } catch (err) {
     res.status(401).json({
       message: "User not successful created",
-      error: error.mesage,
+      error: err.mesage,
     })
   }
 

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   searchText: string = "";
 
-  characters = [
+  items = [
     'broom',
     'washing machine',
     'scoop',
