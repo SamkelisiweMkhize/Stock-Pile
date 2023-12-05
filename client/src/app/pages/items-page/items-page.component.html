@@ -1,54 +1,64 @@
 <app-navbar />
-<table class="table mt-4">
-    <thead>
-        <tr>
-            <th scope="col">Items</th>
-            <th scope="col">Category</th>
-            <th scope="col">Description</th>
-        </tr>
-    </thead>
 
-    <tbody class="justify-content-center">
-        <tr *ngFor="let item of myList; let i = index">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ myList.item }}</td>
-            <td>{{ myList.category }}</td>
-            <td>{{ myList.description }}</td>
-            <td>
-                <div class="btn-group d-grid gap-2 d-md-flex">
-                    <!-- <button class="" type="button">Update</button>
-              <button class="" type="button">Delete</button> -->
-                </div>
+<div class="container mt-5">
+    <div class="row">
+        <table class="table table-striped table-bordered table-hover mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listItems">
+                    <th scope="row">{{item._id}}</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-primary" (click)="updateItem(item._id)">Update</button>
+                            <button type="button" class="btn btn-outline-danger" (click)="deleteItem(item._id)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-            </td>
-    </tbody>
-</table>
 
+<button class="btn-add" (click)="open(content)">ADD</button>
 
 
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Add items</h4>
+        <h4 class="modal-title" id="modal-basic-title">Add new item</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
         <form>
             <div class="mb-3">
-                <label for="dateOfBirth">Date of birth</label>
+                <label>Name</label>
                 <div class="input-group">
-                    <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
-                        #dp="ngbDatepicker" />
+                    <input class="form-control" type="text" name="name" #name placeholder="Item name..." />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Description</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" description="description" #description
+                        placeholder="Item description..." />
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Close</button>
+            <button type="button" class="btn btn-outline-primary" (click)="addToListFunc(name.value, description.value)">Save</button>
+        </div>
+
     </div>
 </ng-template>
-
-<button class="d-grid btn-lg btn-outline-primary" (click)="open(content)">Add Item</button>
-
-<hr />
-
-<pre>{{ closeResult }}</pre>

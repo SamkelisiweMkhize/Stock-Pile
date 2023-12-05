@@ -33,15 +33,15 @@ content-type: application/json
 
 {
  "name": "scoop",
-  "catecory": "out of tock"
+  "description": "out of tock"
 }
 
 ### Update stock items
-PUT {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
+PUT {{SERVER}}/api/stock/items/656ec62e8f7f319f5110377e
 content-type: application/json
 
 {
- "name": "tails5",
+ "name": "tails5ghjkjhghj",
  "description": "in stock"
 }
 
@@ -51,13 +51,8 @@ GET {{SERVER}}/api/stock/items
 
 
 ###DELETE###
-DELETE {{SERVER}}/api/stock/items/6569746999fe685f8e28045a
-content-type: application/json
+DELETE {{SERVER}}/api/stock/items/656ec62e8f7f319f5110377e
 
-{
- "name": "porish",
- "description": "in stock"
-}
 
 ###Search###
 GET {{SERVER}}/api/stock/items/search

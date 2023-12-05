@@ -1,6 +1,9 @@
 import { Component, TemplateRef, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ListInterface } from 'src/app/interface/list';
+import { AlertService } from 'src/app/services/alert.service';
+import { ListService } from 'src/app/services/list.service';
 
 @Component({
   selector: 'app-items-page',
@@ -8,42 +11,64 @@ import { ModalDismissReasons, NgbDatepickerModule, NgbModal } from '@ng-bootstra
   styleUrls: ['./items-page.component.css'],
 })
 export class ItemsPageComponent {
+updateItem(arg0: string) {
+throw new Error('Method not implemented.');
+}
+  listItems: ListInterface[] = [];
+
+  name: string = '';
+  description: string = '';
+
+  // modal service from ng bootstrap
   private modalService = inject(NgbModal);
-	closeResult = '';
-  item = new FormControl('');
 
-  myList: any = [];
-  constructor() {}
+  constructor(
+    private listService: ListService,
+    private alertService: AlertService
+  ) {}
 
-  ngOnInit(): void {}
-
-  addItem() {
-    const myList = this.myList.push(this.myList.value);
-
-    console.log(myList);
+  ngOnInit(): void {
+    // call function that return data from the service
+    this.listService.getallListFunc().subscribe((data) => {
+      this.listItems = data;
+    });
   }
 
+  // open modal
   open(content: TemplateRef<any>) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result) => {
-				this.closeResult = `Closed with: ${result}`;
-			},
-			(reason) => {
-				this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-			},
-		);
-	}
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
 
-	private getDismissReason(reason: any): string {
-		switch (reason) {
-			case ModalDismissReasons.ESC:
-				return 'by pressing ESC';
-			case ModalDismissReasons.BACKDROP_CLICK:
-				return 'by clicking on a backdrop';
-			default:
-				return `with: ${reason}`;
-		}
-	}
-  
+  deleteItem(id: string) {
+    this.listService.removeFromListFunc(id).subscribe(data => {
+      this.listItems = data;
+        this.alertService.success('Item deleted');
+    }, error => {
+      this.alertService.error('Try again later');
+    })
+  }
 
+  addToListFunc(name: string, description: string) {
+    if (!name || !description) {
+      this.alertService.error('Name and description required');
+      return;
+    }
+
+    this.listService.addToListFunc(name, description).subscribe(
+      (data) => {
+        this.listItems = data;
+        this.alertService.success('Item added in the list');
+      },
+      (error) => {
+        this.alertService.error('Try again later');
+      }
+    );
+  }
+
+  updateToListFunc(name: string, description: string) {
+    // if (!name || !description) {
+    //   this.alertService.error('Name and description required');
+    //   return;
+    // }
+}
 }
