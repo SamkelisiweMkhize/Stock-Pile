@@ -5,6 +5,7 @@
     margin-bottom: 2rem;
   }
 
+
   .cover {
     margin-top: 15rem;
     margin-left: 25rem;
@@ -16,6 +17,17 @@
     color: white;
     min-width: 80px;
     text-align: center;
+  }
+
+  .bi{
+    font-weight: bolder;
+    margin-left: 24rem;
+    border-radius: 30%;
+    font-size: x-large;
+
+  }
+  .bi:hover{
+    opacity: 3; 
   }
   
   .input-field {
@@ -44,16 +56,14 @@
   }
 
 
-  @media screen and (max-width: 576px) {
-    .input-container {
-      display: -ms-flexbox; /* IE10 */
-      display: flex;
-      width: 100%;
-      margin-bottom: 2rem;
-    }
   
+
+
+  @media screen and (max-width: 576px) {
+   
     .cover {
-      margin-top: 15rem;
+   margin-left: 3px;
+   
     }
     
     .icon {
@@ -61,12 +71,17 @@
       background: rgb(245, 59, 59);
       color: white;
       min-width: 50px;
-      text-align: center;
-      margin-left: 3rem;
+      margin-left: 3px;
+    }
+
+    .bi{
+      font-weight: bolder;
+      margin-left: 11rem;
+      font-size: x-large;
     }
     
     .input-field {
-      width: 50%;
+      width: 85%;
       padding: 10px;
       outline: none;
     }

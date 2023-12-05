@@ -45,28 +45,18 @@
 
 
   @media screen and (max-width: 576px) {
-    .input-container {
-      display: -ms-flexbox; /* IE10 */
-      display: flex;
-      width: 100%;
-      margin-bottom: 2rem;
-    }
-  
     .cover {
-      margin-top: 15rem;
-    }
+      margin-left: 3px;
+      
+       }
     
-    .icon {
-      padding: 10px;
-      background: rgb(245, 59, 59);
-      color: white;
-      min-width: 50px;
-      text-align: center;
-      margin-left: 3rem;
-    }
+       .icon {
+        min-width: 50px;
+        margin-left: 3px;
+      }
     
     .input-field {
-      width: 50%;
+      width: 85%;
       padding: 10px;
       outline: none;
     }

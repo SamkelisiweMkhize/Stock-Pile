@@ -71,9 +71,19 @@ exports.register = async (req, res, next) => {
 // Create an item // 
 exports.create = async (req, res) => {
   try {
-    const newItem = new Item(req.body);
+    const {name, description} = req.body
+
+    if(!name || !description) {
+      res.status(400)
+      res.status(400).json({ message: "name and description cannot be empty" });
+    }
+
+    const newItem = new Item({name, description});
     await newItem.save();
-    res.status(201).json({ message: "The item has been added" });
+
+    const items = await Item.find();
+    res.json(items);
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -110,7 +120,10 @@ exports.remove = async (req, res) => {
 
   try {
     await Item.findByIdAndDelete(req.params.id);
-    res.status(204).send({ message: "The item has been deleted" });
+
+    const items = await Item.find();
+    res.json(items);
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

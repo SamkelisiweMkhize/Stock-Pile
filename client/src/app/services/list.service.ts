@@ -1,20 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { listInterface } from '../interface/list';
-import { read } from '@popperjs/core';
-
+import { env } from 'src/enviroment/enviroment';
+import { ListInterface } from '../interface/list';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ListService {
-  postsUrl: any;
-  baseUrl: any;
-
   constructor(private http: HttpClient) {}
 
-  getallListFunc():Observable<any>{ 
-    return this.http.get(`${this.baseUrl}/read`)
+  getallListFunc(): Observable<ListInterface[]> {
+    return this.http.get<ListInterface[]>(`${env.SERVER_URL}/api/stock/items`);
+  }
+
+  addToListFunc(
+    name: string,
+    description: string
+  ): Observable<ListInterface[]> {
+    return this.http.post<ListInterface[]>(
+      `${env.SERVER_URL}/api/stock/create`,
+      { name, description }
+    );
+  }
+
+  removeFromListFunc(id: string): Observable<ListInterface[]> {
+    return this.http.delete<ListInterface[]>(
+      `${env.SERVER_URL}/api/stock/items/${id}`
+    );
+  }
+  updateToListFunc(
+    name: string,
+    description: string
+  ): Observable<ListInterface[]> {
+    return this.http.post<ListInterface[]>(
+      `${env.SERVER_URL}/api/stock/itms`,
+      { name, description }
+    );
   }
 }

@@ -1,7 +1,20 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      aria-controls="dropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px"></ul>
+      <div class="d-flex" role="Stock-Pile">
+        <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px">
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-md">
-      <a class="navbar-brand" href="#">Navbar</a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+
+          <a class="nav-link" routerLink="/items" routerLinkActive="active">Items</a>
+
+        </ul>
+      </div>
     </div>
-  </nav>
+  </div>
+</nav>

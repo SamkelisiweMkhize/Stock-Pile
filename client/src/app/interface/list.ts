@@ -1,7 +1,5 @@
-export interface listInterface {
+export interface ListInterface {
     _id: string;
-    product: string;
     description: string;
-    totalNumber: number;
-    inStock: boolean;
+    name: string;
   }
