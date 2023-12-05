@@ -1,6 +1,7 @@
 import { Component, TemplateRef, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { data } from 'jquery';
 import { ListInterface } from 'src/app/interface/list';
 import { AlertService } from 'src/app/services/alert.service';
 import { ListService } from 'src/app/services/list.service';
@@ -11,9 +12,14 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./items-page.component.css'],
 })
 export class ItemsPageComponent {
-updateItem(arg0: string) {
+update(arg0: string,arg1: string) {
 throw new Error('Method not implemented.');
 }
+  
+list: any;
+  updateItem(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   listItems: ListInterface[] = [];
 
   name: string = '';
@@ -27,10 +33,14 @@ throw new Error('Method not implemented.');
     private alertService: AlertService
   ) {}
 
+
+
   ngOnInit(): void {
     // call function that return data from the service
     this.listService.getallListFunc().subscribe((data) => {
       this.listItems = data;
+      console.log(this.listItems);
+      
     });
   }
 
@@ -40,12 +50,15 @@ throw new Error('Method not implemented.');
   }
 
   deleteItem(id: string) {
-    this.listService.removeFromListFunc(id).subscribe(data => {
-      this.listItems = data;
+    this.listService.removeFromListFunc(id).subscribe(
+      (data) => {
+        this.listItems = data;
         this.alertService.success('Item deleted');
-    }, error => {
-      this.alertService.error('Try again later');
-    })
+      },
+      (error) => {
+        this.alertService.error('Try again later');
+      }
+    );
   }
 
   addToListFunc(name: string, description: string) {
@@ -65,10 +78,12 @@ throw new Error('Method not implemented.');
     );
   }
 
-  updateToListFunc(name: string, description: string) {
-    // if (!name || !description) {
-    //   this.alertService.error('Name and description required');
-    //   return;
-    // }
+ //update
+ updateToList(name: string, description: string,) {
+
+  this.listService.updateToListFunc(name,this.description).subscribe((res: any) => {
+    console.log(name)
+  });
 }
 }
+
