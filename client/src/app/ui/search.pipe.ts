@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import { list } from './categories/';
+
 
 @Pipe({
   name: 'search',

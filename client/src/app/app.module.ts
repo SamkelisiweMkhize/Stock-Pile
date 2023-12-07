@@ -13,6 +13,8 @@ import { LoginComponent } from './pages/login-page/login-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsPageComponent } from './pages/items-page/items-page.component';
+import { ListSearchComponent } from './ui/list-search/list-search.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ItemsPageComponent } from './pages/items-page/items-page.component';
     NavbarComponent,
     LoginComponent,
     ItemsPageComponent,
+    ListSearchComponent,
+
   ],
   imports: [
     BrowserModule,
