@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemsPageComponent } from './pages/items-page/items-page.component';
 import { ListSearchComponent } from './ui/list-search/list-search.component';
+import { FilterPipe } from './filter.pipe';
+
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ListSearchComponent } from './ui/list-search/list-search.component';
     LoginComponent,
     ItemsPageComponent,
     ListSearchComponent,
+    FilterPipe,
 
+ 
   ],
   imports: [
     BrowserModule,

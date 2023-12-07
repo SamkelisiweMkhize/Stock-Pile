@@ -8,6 +8,9 @@ import { ListInterface } from '../interface/list';
   providedIn: 'root',
 })
 export class ListService {
+  updatefunc(id: any, task: { name: string; '': any; number: any; }) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) {}
 
   getallListFunc(): Observable<ListInterface[]> {

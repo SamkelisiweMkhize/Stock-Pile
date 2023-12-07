@@ -4,11 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'search',
 })
-export class SearchPipe implements PipeTransform {
-  transform(items: any[], searchText: string): any {
-    return items
-      ? items.filter(
-          (item: any) => item.items.search(new RegExp(searchText, 'i')) > -1
+export class SearchFilterPipe implements PipeTransform {
+  transform(list: any[], filterText: string): any {
+    return list
+      ? list.filter(
+          (item) => item.name.search(new RegExp(filterText, 'i')) > -1
         )
       : [];
   }
