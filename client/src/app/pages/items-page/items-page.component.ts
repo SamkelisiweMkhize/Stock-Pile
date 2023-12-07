@@ -12,6 +12,7 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./items-page.component.css'],
 })
 export class ItemsPageComponent {
+items: any;
 update(arg0: string,arg1: string) {
 throw new Error('Method not implemented.');
 }

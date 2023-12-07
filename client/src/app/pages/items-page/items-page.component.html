@@ -30,25 +30,26 @@
                                 <div class="modal-body">
                                     <form>
                                         <div class="mb-3">
-                                            <label>{{name}}</label>
-                                            <div class="input-group">
-                                                <input class="form-control" [(ngModel)]="list.name" type="text" name="name" #name placeholder="Item name..." />
-                                            </div>
+                                            <label>{{item.name}}</label>
+                                            <div>
+                                               
+                                                <input id="name" [(ngModel)]="name">
+                                              </div>
                                         </div>
                                         <div class="mb-3">
-                                            <label>{{description}}</label>
-                                            <div class="input-group">
-                                                <input class="form-control" [(ngModel)]="list.name" type="text" description="description" #description
-                                                    placeholder="Item description..." />
-                                            </div>
+                                            <label>{{item.description}}</label>
+                                            <div>
+                                           
+                                                <input id="name" [(ngModel)]="description">
+                                              </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Close</button>
+                                        <button type="button" class="btn btn-outline-danger" (click)="modal.close('update click')">Close</button>
                                         <button type="button" class="btn btn-outline-primary"
-                                            (click)="addToListFunc(name.value, description.value)">Save Changes</button>
+                                            (click)="updateToList(name, description)">Update</button>
                                     </div>
                             
                                 </div>
