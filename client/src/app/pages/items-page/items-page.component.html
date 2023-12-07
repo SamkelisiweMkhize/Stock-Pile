@@ -19,50 +19,54 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
 
-                           
-                            <button type="button" class="btn btn-outline-primary" (click)="open(content)">Update</button> 
-                                
+
+                            <button type="button" class="btn btn-outline-primary"
+                                (click)="open(content)">Update</button>
+
                             <ng-template #content let-modal>
                                 <div class="modal-header">
-                                    <h4 class="modal-title" id="modal-basic-title"></h4>
-                                    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                                    <h4 class="modal-title" id="modal-basic-title">Update Here</h4>
+                                    <button type="button" class="btn-close" aria-label="Close"
+                                        (click)="modal.dismiss('Cross click')"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form>
                                         <div class="mb-3">
                                             <label>{{item.name}}</label>
                                             <div>
-                                               
+
                                                 <input id="name" [(ngModel)]="name">
-                                              </div>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
                                             <label>{{item.description}}</label>
                                             <div>
-                                           
+
                                                 <input id="name" [(ngModel)]="description">
-                                              </div>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-outline-danger" (click)="modal.close('update click')">Close</button>
+                                        <button type="button" class="btn btn-outline-danger"
+                                            (click)="modal.close('update click')">Close</button>
                                         <button type="button" class="btn btn-outline-primary"
-                                            (click)="updateToList(name, description)">Update</button>
+                                            (click)="update(name, description)">Update</button>
                                     </div>
-                            
+
                                 </div>
                             </ng-template>
-                            
-                            
-                            
-                              
-                                
-                                
-                                
-                                
-                                <button type="button" class="btn btn-outline-danger"(click)="deleteItem(item._id)">Delete</button>
+
+
+
+
+
+
+
+
+                            <button type="button" class="btn btn-outline-danger"
+                                (click)="deleteItem(item._id)">Delete</button>
                         </div>
                     </td>
                 </tr>
@@ -106,6 +110,3 @@
 
     </div>
 </ng-template>
-
-
-

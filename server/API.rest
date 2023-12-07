@@ -56,8 +56,9 @@ DELETE {{SERVER}}/api/stock/items/656ec62e8f7f319f5110377e
 
 ###Search###
 GET {{SERVER}}/api/stock/items/search
+content-type: application/json
 {
-    "name": ["broom"]
+    "name": "description"
 }
 
 

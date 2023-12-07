@@ -9,11 +9,11 @@ export class AppComponent {
   searchText: string = "";
 
   items = [
-    'broom',
-    'washing machine',
-    'scoop',
+    'tables',
+    'posish',
+    'mats',
     'tiles',
-    'microwave',
-    'mats'
+    'head boards',
+    'microwave'
   ]
 }

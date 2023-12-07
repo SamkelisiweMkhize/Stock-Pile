@@ -71,14 +71,14 @@ exports.register = async (req, res, next) => {
 // Create an item // 
 exports.create = async (req, res) => {
   try {
-    const {name, description} = req.body
+    const { name, description } = req.body
 
-    if(!name || !description) {
+    if (!name || !description) {
       res.status(400)
       res.status(400).json({ message: "name and description cannot be empty" });
     }
 
-    const newItem = new Item({name, description});
+    const newItem = new Item({ name, description });
     await newItem.save();
 
     const items = await Item.find();
